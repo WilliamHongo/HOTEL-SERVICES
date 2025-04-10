@@ -1,0 +1,28 @@
+/* Glassmorphism for Cards */
+.service-card {
+    backdrop-filter: blur(15px);
+  }
+  
+  .form {
+    backdrop-filter: blur(15px);
+  }
+  
+  /* Add transition effect on hover for all cards */
+  .service-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Button styles for Reception */
+  .call-reception button {
+    transition: all 0.3s ease;
+  }
+  
+  /* Set container size and spacing */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
