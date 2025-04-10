@@ -12,17 +12,18 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Add a new service
-router.post('/', async (req, res) => {
-  const service = new Service({
-    name: req.body.name,
-    description: req.body.description,
-    category: req.body.category
+// Add a new service request (POST method for /request route)
+router.post('/request', async (req, res) => {
+  const serviceRequest = new Service({
+    guestName: req.body.guestName,
+    roomNumber: req.body.roomNumber,
+    complaintInquiry: req.body.complaintInquiry,
+    servicesRequested: req.body.servicesRequested,
   });
 
   try {
-    const newService = await service.save();
-    res.status(201).json(newService);
+    const newServiceRequest = await serviceRequest.save();
+    res.status(201).json(newServiceRequest);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

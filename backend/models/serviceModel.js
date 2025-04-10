@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 // Define the schema for each selected service
 const selectedServiceSchema = new mongoose.Schema({
-  name: { 
+  name: {
     type: String,
     required: true
   },
-  description: { 
+  description: {
     type: String,
     required: true
   }
@@ -28,7 +28,7 @@ const serviceSchema = new mongoose.Schema({
   },
   servicesRequested: [
     {
-      serviceType: { 
+      serviceType: {
         type: String,
         enum: ['Room Service', 'Housekeeping', 'Concierge', 'Spa & Wellness'],
         required: true

@@ -6,20 +6,26 @@ require('dotenv').config();
 // Initialize Express
 const app = express();
 
+// CORS configuration
+const corsOptions = {
+  origin: 'https://myhotel-services.netlify.app', // Your Netlify frontend URL
+};
+
+app.use(cors(corsOptions)); // Use CORS options here
+
 // Middleware
 app.use(express.json()); // For parsing JSON requests
-app.use(cors()); // Allow cross-origin requests
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.log('MongoDB connection error:', err));
 
 // Routes
-const serviceRoutes = require('./routes/serviceRoutes'); // we'll create this in the next step
+const serviceRoutes = require('./routes/serviceRoutes'); // We'll create this in the next step
 app.use('/api/services', serviceRoutes); // API route for services
 
 // Start server
